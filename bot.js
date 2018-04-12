@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const version = '0.0.3';
+const version = '0.0.3-TEST';
 const ItemName = ["Пусто", "Диск"];
 var Team = {};
 var Role = {};
@@ -12,7 +12,7 @@ let hellowed = false;
 function InvenoryString(id, USER) {
   let Str = "Инвентарь:\n";
   for(i = 1; i <= 8; i++){
-    Str += (i.toString() + ". " + ItemName[Inve[id]]);
+    Str += (i.toString() + ". " + Inve[id].toString());
     if(Inve[id] != 0 && Invn[id] > 1) Str += (" x" + Invn[id].toString());
     Str += "\n";
   }
@@ -39,6 +39,8 @@ client.on('message', msg => {
   } else {
     if(msg.content == ":inv") {
       InvenoryString(msg.author.id, msg.author);
+    } else if(msg.content == ":help") {
+      msg.reply("Список команд:\n:help - Список команд\n:inv - Приватный инвентарь")
     }
   }
 });
