@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const version = '0.0.3-TEST';
+const version = '0.0.3';
 const ItemName = ["Пусто", "Диск"];
 var Team = {};
 var Role = {};
@@ -12,7 +12,7 @@ let hellowed = false;
 function InvenoryString(id, USER) {
   let Str = "Инвентарь:\n";
   for(i = 1; i <= 8; i++){
-    Str += (i.toString() + ". " + ItemName[Inve[id][i]]);
+    Str += (i.toString() + ". " + ItemName[Inve[id][i-1]]);
     if(Inve[id] != 0 && Invn[id] > 1) Str += (" x" + Invn[id].toString());
     Str += "\n";
   }
