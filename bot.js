@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const version = '0.0.2';
+const version = '0.0.3';
 const ItemName = ["Пусто", "Диск"];
 var Team = {};
 var Role = {};
@@ -9,7 +9,7 @@ var Inve = {};
 var Invn = {};
 let hellowed = false;
 
-/*function InvenoryString(id, USER) {
+function InvenoryString(id, USER) {
   let Str = "Инвентарь:\n";
   for(i = 1; i <= 8; i++){
     Str += (i.toString() + ". " + ItemName[Inve[id]]);
@@ -17,7 +17,7 @@ let hellowed = false;
     Str += "\n";
   }
   USER.sendMessage(Str);
-}*/
+}
 
 client.on('ready', () => {
   //console.log(`Logged in as ${423868710940311552}!`);
@@ -38,7 +38,7 @@ client.on('message', msg => {
     msg.reply('Привет, друг! Либо ты новенький, либо твои данные были сброшены! Приятного общения! (Пиши :help для доп. инфы)');
   } else {
     if(msg.content == ":inv") {
-      //InvenoryString(msg.author.id, msg.author);
+      InvenoryString(msg.author.id, msg.author);
     }
   }
 });
