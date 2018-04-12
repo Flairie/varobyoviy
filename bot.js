@@ -15,7 +15,7 @@ client.on('message', msg => {
     hellowed = true;
   }
   
-  if(!(msg.author.id in Team)) {
+  if(!(msg.author.id in Team && msg.author.bot)) {
     Team[msg.author.id] = 0;
     Role[msg.author.id] = 0;
     Luvr[msg.author.id] = 0;
