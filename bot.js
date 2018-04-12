@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var Team = {};
 var Role = {};
+var Luvr = {};
 let hellowed = false;
 
 client.on('ready', () => {
@@ -17,6 +18,7 @@ client.on('message', msg => {
   if(!(msg.author.id in Team)) {
     Team[msg.author.id] = 0;
     Role[msg.author.id] = 0;
+    Luvr[msg.author.id] = 0;
     msg.reply('Привет, друг! Либо ты новенький, либо твои данные были сброшены! Приятного общения!');
   }
 });
