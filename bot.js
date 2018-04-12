@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const version = '0.1.0';
+const version = '0.0.1';
 const ItemName = {"Пусто", "Диск"}
 var Team = {};
 var Role = {};
