@@ -9,13 +9,14 @@ var Inve = {};
 var Invn = {};
 let hellowed = false;
 
-function InvenoryString(id) {
-  let Str = "Инвентарь:\n"
+function InvenoryString(id, USER) {
+  let Str = "Инвентарь:\n";
   for(let i = 0; i < 8; i++){
-    Str += (i.toString() + ". " + ItemName[Inve[id]]);
+    Str += (i+1.toString() + ". " + ItemName[Inve[id]]);
     if(Inve[id] != 0 && Invn[id] > 1) Str += (" x" + Invn[id].toString());
     Str += "\n";
   }
+  USER.sendMessage(Str);
 }
 
 client.on('ready', () => {
@@ -37,7 +38,7 @@ client.on('message', msg => {
     msg.reply('Привет, друг! Либо ты новенький, либо твои данные были сброшены! Приятного общения! (Пиши :help для доп. инфы)');
   } else {
     if(msg.content == ":inv") {
-      msg.author.sendMessage("");
+      InvenoryString(msg.author.id, msg.author);
     }
   }
 });
