@@ -12,7 +12,7 @@ let hellowed = false;
 function InvenoryString(id, USER) {
   let Str = "Инвентарь:\n";
   for(i = 1; i <= 8; i++){
-    Str += (i.toString() + ". " + ItemName[Inve[id][i]];
+    Str += (i.toString() + ". " + ItemName[Inve[id][i]]);
     if(Inve[id] != 0 && Invn[id] > 1) Str += (" x" + Invn[id].toString());
     Str += "\n";
   }
