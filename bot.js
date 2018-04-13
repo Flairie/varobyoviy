@@ -76,7 +76,7 @@ client.on('message', msg => {
     if(msg.content === "Голосуйте за Покровского!" && msg.author.id in WorkP && PokrC <= 0) {
       Luvr[msg.author.id] += 5;
       Ruby[msg.author.id] += 1
-      msg.author.sendMessage("Средства начислены!)";
+      msg.author.sendMessage("Средства начислены!");
       PokrC = 20;
     }
   }
