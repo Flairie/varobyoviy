@@ -46,7 +46,7 @@ client.on('message', msg => {
     
     if(maxrole == -1) {
       msg.member.addRole(Rank[0]);
-      msg.reply('Да ты новичёк! Пиши ":help" для получения список команд.');
+      msg.reply('Да ты новичёк! Пиши ":help" для получения списка команд.');
       maxrole = 0;
     }
     Role[msg.author.id] = maxrole;
