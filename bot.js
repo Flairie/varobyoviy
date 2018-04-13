@@ -5,6 +5,7 @@ const ItemName = ["Пусто", "Диск"];
 var Team = {};
 var Role = {};
 var Luvr = {};
+var Ruby = {};
 var Inve = {};
 var Invn = {};
 let hellowed = false;
@@ -32,15 +33,22 @@ client.on('message', msg => {
   if(!(msg.author.id in Team || msg.author.bot)) {
     Team[msg.author.id] = 0;
     Role[msg.author.id] = 0;
-    Luvr[msg.author.id] = 0;
+    Luvr[msg.author.id] = 100;
+    Ruby[msg.author.id] = 5;
     Inve[msg.author.id] = [1, 0, 0, 0, 0, 0, 0, 0];
     Invn[msg.author.id] = [1, 0, 0, 0, 0, 0, 0, 0];
     msg.reply('Привет, друг! Либо ты новенький, либо твои данные были сброшены! Приятного общения! (Пиши :help для доп. инфы)');
   } else {
     if(msg.content == ":inv") {
       InvenoryString(msg.author.id, msg.author);
+    } else if(msg.content == ":invpub") {
+      InvenoryString(msg.author.id, msg.channel);
+    } if(msg.content == ":mny") {
+      msg.author.sendMessage("Рубины: " + Ruby[msg.author.id].toString() + "\nЛувры: "+ Luvr[msg.author.id].toString());
+    } else if(msg.content == ":mnypub") {
+      InvenoryString(msg.author.id, msg.channel);
     } else if(msg.content == ":help") {
-      msg.reply("Список команд:\n:help - Список команд\n:inv - Приватный инвентарь")
+      msg.reply("Список команд:\n:help - Список команд\n:inv - Приватный инвентарь\n:mny - Приватные деньги\n:invpubl - Публичный инвентарь\n:mnypubl - Публичные деньги")
     }
   }
 });
