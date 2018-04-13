@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const version = '0.0.3';
 const ItemName = ["Пусто", "Диск"];
+const Rank = ["422839749536120832"];
 var Team = {};
 var Role = {};
 var Luvr = {};
@@ -32,12 +33,24 @@ client.on('message', msg => {
   
   if(!(msg.author.id in Team || msg.author.bot)) {
     Team[msg.author.id] = 0;
-    Role[msg.author.id] = 0;
     Luvr[msg.author.id] = 100;
     Ruby[msg.author.id] = 5;
     Inve[msg.author.id] = [1, 0, 0, 0, 0, 0, 0, 0];
     Invn[msg.author.id] = [1, 0, 0, 0, 0, 0, 0, 0];
-    msg.reply('Привет, друг! Либо ты новенький, либо твои данные были сброшены! Приятного общения! (Пиши :help для доп. инфы)');
+    msg.reply('Привет, друг! Либо ты новенький, либо твои данные были сброшены! Приятного общения!');
+    let maxrole = -1;
+    
+    for(i = 0; i < Rank.length; i++) {
+      if(msg.member.roles.exists("id", Rank[i])) maxrole = i;
+    }
+    
+    if(maxrole == -1) {
+      msg.member.addRole(Rank[0]);
+      msg.reply('Да ты новичёк! Пиши ":help" для получения список команд.');
+      maxrole = 0;
+    }
+    Role[msg.author.id] = maxrole;
+    
   } else {
     if(msg.content == ":inv") {
       InvenoryString(msg.author.id, msg.author);
