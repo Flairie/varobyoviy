@@ -41,12 +41,12 @@ client.on('message', msg => {
   } else {
     if(msg.content == ":inv") {
       InvenoryString(msg.author.id, msg.author);
-    } else if(msg.content == ":invpub") {
+    } else if(msg.content == ":invpubl") {
       InvenoryString(msg.author.id, msg.channel);
     } if(msg.content == ":mny") {
       msg.author.sendMessage("Рубины: " + Ruby[msg.author.id].toString() + "\nЛувры: "+ Luvr[msg.author.id].toString());
-    } else if(msg.content == ":mnypub") {
-      InvenoryString(msg.author.id, msg.channel);
+    } else if(msg.content == ":mnypubl") {
+      msg.channel.sendMessage("Рубины: " + Ruby[msg.author.id].toString() + "\nЛувры: "+ Luvr[msg.author.id].toString());
     } else if(msg.content == ":help") {
       msg.reply("Список команд:\n:help - Список команд\n:inv - Приватный инвентарь\n:mny - Приватные деньги\n:invpubl - Публичный инвентарь\n:mnypubl - Публичные деньги")
     }
