@@ -73,11 +73,11 @@ client.on('message', msg => {
       msg.reply("Список команд:\n:help - Список команд\n:job - Список работ\n:inv - Приватный инвентарь\n:mny - Приватные деньги\n:invpubl - Публичный инвентарь\n:mnypubl - Публичные деньги");
     }
     
-    if(msg.content === "Голосуйте за Покровского!" && msg.author.id in WorkP && PokrC <= 0) {
-      //Luvr[msg.author.id] += 5;
-      //Ruby[msg.author.id] += 1;
+    if(msg.content === "Голосуйте за Покровского!" && PokrC <= 0) {
+      Luvr[msg.author.id] += 5;
+      Ruby[msg.author.id] += 1;
       msg.author.sendMessage("Средства not начислены!");
-      //PokrC = 20;
+      PokrC = 20;
     }
   }
 });
