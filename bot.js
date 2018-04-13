@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const version = '0.0.3';
+const version = '0.1.0';
 const ItemName = ["Пусто", "Диск"];
 const Rank = ["422839749536120832", "422832838971228171", "422850622216339467"];
 var Team = {};
