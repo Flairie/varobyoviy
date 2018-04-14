@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client(); 
 const version = '0.2.1: job system';
 const ItemName = ["Пусто", "Диск"];
-const Rank = ["434273045159346181", "434273241121554444", "422839749536120832", "422832838971228171", "422850622216339467"];
+const Rank = ["434273045159346181", "434376692119896114", "434273241121554444", "422839749536120832", "422832838971228171", "422850622216339467"];
 var Team = {};
 var Role = {};
 var Luvr = {};
@@ -61,8 +61,12 @@ client.on('message', msg => {
     } else if(msg.content == ":job") {
       msg.reply("Список работ:\n1. Реклама Покровского (1rub, 5luv). Пишите :workP");
     } else if(msg.content == ":workP") {
-      msg.author.sendMessage('Вы наняты. За каждое сообщение "Голосуйте за Покровского!" вы будете получать указаную зарплату, но при условии, что предыдущая реклама была достаточно давно');
-      WorkP += msg.author.id;
+      if(!msg.member.roles.exists("434380717280198658") {
+         msg.author.sendMessage('Вы наняты. За каждое сообщение "Голосуйте за Покровского!" вы будете получать указаную зарплату, но при условии, что предыдущая реклама была достаточно давно');
+         msg.member.addRole("434380717280198658");
+      } else {
+        msg.author.sendMessage("Вы уволились с должности");
+        msg.member.removeRole("434380717280198658");
     } else if(msg.content == ":invpubl") {
       InvenoryString(msg.author.id, msg.channel);
     } else if(msg.content == ":mny") {
@@ -73,7 +77,7 @@ client.on('message', msg => {
       msg.reply("Список команд:\n:help - Список команд\n:job - Список работ\n:inv - Приватный инвентарь\n:mny - Приватные деньги\n:invpubl - Публичный инвентарь\n:mnypubl - Публичные деньги");
     }
     
-    if(msg.content === "Голосуйте за Покровского!" && PokrC <= 0) {
+    if(msg.member.roles.exists("434380717280198658") && msg.content === "Голосуйте за Покровского!" && PokrC <= 0) {
       Luvr[msg.author.id] += 5;
       Ruby[msg.author.id] += 1;
       msg.author.sendMessage("Средства not начислены!");
