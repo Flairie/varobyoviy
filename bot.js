@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client(); 
-const version = '0.2.1: job system';
+const version = '0.2.2: job system';
 const ItemName = ["Пусто", "Диск"];
 const Rank = ["434273045159346181", "434376692119896114", "434273241121554444", "422839749536120832", "422832838971228171", "422850622216339467"];
 var Team = {};
@@ -67,6 +67,7 @@ client.on('message', msg => {
       } else {
         msg.author.sendMessage("Вы уволились с должности");
         msg.member.removeRole("434380717280198658");
+      }
     } else if(msg.content == ":invpubl") {
       InvenoryString(msg.author.id, msg.channel);
     } else if(msg.content == ":mny") {
