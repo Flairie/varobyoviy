@@ -86,7 +86,7 @@ client.on('message', msg => { if(!msg.author.bot) {
     }
   } 
   
-  if(Ruby[msg.author.id] >= 10 * (2^Role[msg.author.id])) {
+  if(Ruby[msg.author.id] >= 10 *Math.pow(2, Role[msg.author.id])) {
      msg.reply(", а ты крут. Лови Повышенье");
      msg.member.removeRole(Rank[Role[msg.author.id]]);
      Role[msg.author.id] += 1;
