@@ -82,7 +82,7 @@ client.on('message', msg => { if(!msg.author.bot) {
       Luvr[msg.author.id] += 5;
       Ruby[msg.author.id] += 1;
       msg.author.sendMessage("Средства начислены!");
-      PokrC = 0;
+      PokrC = 40;
     }
   } 
   
