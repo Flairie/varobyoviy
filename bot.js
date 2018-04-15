@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client(); 
-const version = '0.2.3: job system';
+const version = '0.3.0: rank system';
 const ItemName = ["Пусто", "Диск"];
 const Rank = ["434273045159346181", "434376692119896114", "434273241121554444", "422839749536120832", "422832838971228171", "422850622216339467"];
 var Team = {};
@@ -82,7 +82,7 @@ client.on('message', msg => { if(!msg.author.bot) {
       Luvr[msg.author.id] += 5;
       Ruby[msg.author.id] += 1;
       msg.author.sendMessage("Средства начислены!");
-      PokrC = 20;
+      PokrC = 0;
     }
   } 
   
