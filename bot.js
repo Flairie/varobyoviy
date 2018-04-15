@@ -81,7 +81,7 @@ client.on('message', msg => {
     if(msg.member.roles.exists("id" ,"434380717280198658") && msg.content === "Голосуйте за Покровского!" && PokrC <= 0) {
       Luvr[msg.author.id] += 5;
       Ruby[msg.author.id] += 1;
-      msg.author.sendMessage("Средства not начислены!");
+      msg.author.sendMessage("Средства начислены!");
       PokrC = 20;
     }
   } 
