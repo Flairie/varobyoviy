@@ -84,7 +84,7 @@ client.on('message', msg => {
       msg.author.sendMessage("Средства not начислены!");
       PokrC = 20;
     }
-  }
+  } 
 });
 
 client.login(process.env.BOT_TOKEN); // wow
