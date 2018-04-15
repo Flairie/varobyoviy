@@ -27,7 +27,7 @@ client.on('ready', () => {
   //console.log(`Logged in as ${423868710940311552}!`);
 });
 
-client.on('message', msg => { 
+client.on('message', msg => { if(!msg.author.bot) {
   if(hellowed == false) {
     msg.channel.send("Я обновился (Версия " + version + "), а Ваши экспириенсы были сброшены :/");
     hellowed = true;
@@ -85,7 +85,7 @@ client.on('message', msg => {
       PokrC = 20;
     }
   } 
-});
+}});
 
 client.login(process.env.BOT_TOKEN); // wow
 
