@@ -61,7 +61,7 @@ client.on('message', msg => {
     } else if(msg.content == ":job") {
       msg.reply("Список работ:\n1. Реклама Покровского (1rub, 5luv). Пишите :workP");
     } else if(msg.content == ":workP") {
-      if(!msg.member.roles.exists("434380717280198658")) {
+      if(!msg.member.roles.exists("id","434380717280198658")) {
          msg.author.sendMessage('Вы наняты. За каждое сообщение "Голосуйте за Покровского!" вы будете получать указаную зарплату, но при условии, что предыдущая реклама была достаточно давно');
          msg.member.addRole("434380717280198658");
       } else {
