@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client(); 
-const version = '0.4.0: adventure system';
+const version = '0.4.1: adventure system';
 const ItemName = ["Пусто", "Диск"];
 const Adventurer = "435460526529576960";
 const Rank = ["434273045159346181", "434376692119896114", "434273241121554444", "422839749536120832", "422832838971228171", "422850622216339467"];
@@ -84,7 +84,7 @@ client.on('message', msg => { if(!msg.author.bot) {
     } else if(msg.content == ":advreally" && !msg.member.roles.exists("id", Adventurer)) {
       let Not = false;
       for(i = 0; i < Worker.length; i++) {
-        if(msg.member.roles.exists("id,", Worker[i])) {Not = true; break;}
+        if(msg.member.roles.exists("id", Worker[i])) {Not = true; break;}
       }
     
       if(!Not) {
