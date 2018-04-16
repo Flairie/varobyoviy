@@ -2,7 +2,10 @@ const Discord = require("discord.js");
 const client = new Discord.Client(); 
 const version = '0.3.0: rank system';
 const ItemName = ["Пусто", "Диск"];
+const Adventurer = "435460526529576960";
 const Rank = ["434273045159346181", "434376692119896114", "434273241121554444", "422839749536120832", "422832838971228171", "422850622216339467"];
+const Worker = ["434380717280198658"];
+const Zone = ["435300505770655748"];
 var Team = {};
 var Role = {};
 var Luvr = {};
@@ -75,8 +78,21 @@ client.on('message', msg => { if(!msg.author.bot) {
     } else if(msg.content == ":mnypubl") {
       msg.channel.sendMessage("Рубины: " + Ruby[msg.author.id].toString() + "\nЛувры: "+ Luvr[msg.author.id].toString());
     } else if(msg.content == ":help") {
-      msg.reply("Список команд:\n:help - Список команд\n:job - Список работ\n:inv - Приватный инвентарь\n:mny - Приватные деньги\n:invpubl - Публичный инвентарь\n:mnypubl - Публичные деньги");
-    }
+      msg.reply("Список команд:\n:help - Список команд\n:job - Список работ\n:adv - Завербоваться в Приключенцы\n:inv - Приватный инвентарь\n:mny - Приватные деньги\n:invpubl - Публичный инвентарь\n:mnypubl - Публичные деньги");
+    } else if(msg.content == ":adv" && !msg.member.roles.exists("id", Adventurer) {
+      msg.reply(", Приключенцы не могут устраиваться на работу. :advreally, чтобы стать приключенцем.");
+    } else if(msg.content == ":advreally" && !msg.member.roles.exists("id", Adventurer) {
+      let Not = false;
+      for(i = 0; i < Worker.length; i++) {
+        if(msg.member.roles.exists("id,", Worker[i]) {Not = true; break;}
+      }
+    
+      if(!Not) {
+          msg.reply(" больше не может устроиться на работу.");
+          msg.member.addRole(Adventurer);
+          msg.member.addRole(Zone[0]);
+      } else msg.reply(" забыл уволиться");
+    } else if(msg.content == ":advreally") msg.reply(", похоже, потерял память");
     
     if(msg.member.roles.exists("id" ,"434380717280198658") && msg.content === "Голосуйте за Покровского!" && PokrC <= 0) {
       Luvr[msg.author.id] += 5;
