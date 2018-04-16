@@ -63,7 +63,7 @@ client.on('message', msg => { if(!msg.author.bot) {
       InvenoryString(msg.author.id, msg.author);
     } else if(msg.content == ":job") {
       msg.reply("Список работ:\n1. Реклама Покровского (1rub, 5luv). Пишите :workP");
-    } else if(msg.content == ":workP") {
+    } else if(msg.content == ":workP" && !msg.member.roles.exists("id", Adventurer)) {
       if(!msg.member.roles.exists("id","434380717280198658")) {
          msg.author.sendMessage('Вы наняты. За каждое сообщение "Голосуйте за Покровского!" вы будете получать указаную зарплату, но при условии, что предыдущая реклама была достаточно давно');
          msg.member.addRole("434380717280198658");
@@ -79,12 +79,12 @@ client.on('message', msg => { if(!msg.author.bot) {
       msg.channel.sendMessage("Рубины: " + Ruby[msg.author.id].toString() + "\nЛувры: "+ Luvr[msg.author.id].toString());
     } else if(msg.content == ":help") {
       msg.reply("Список команд:\n:help - Список команд\n:job - Список работ\n:adv - Завербоваться в Приключенцы\n:inv - Приватный инвентарь\n:mny - Приватные деньги\n:invpubl - Публичный инвентарь\n:mnypubl - Публичные деньги");
-    } else if(msg.content == ":adv" && !msg.member.roles.exists("id", Adventurer) {
+    } else if(msg.content == ":adv" && !msg.member.roles.exists("id", Adventurer)) {
       msg.reply(", Приключенцы не могут устраиваться на работу. :advreally, чтобы стать приключенцем.");
-    } else if(msg.content == ":advreally" && !msg.member.roles.exists("id", Adventurer) {
+    } else if(msg.content == ":advreally" && !msg.member.roles.exists("id", Adventurer)) {
       let Not = false;
       for(i = 0; i < Worker.length; i++) {
-        if(msg.member.roles.exists("id,", Worker[i]) {Not = true; break;}
+        if(msg.member.roles.exists("id,", Worker[i])) {Not = true; break;}
       }
     
       if(!Not) {
