@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client(); 
-const version = '0.5.0: item system upgrade';
+const version = '0.5.1: item system upgrade';
 const ItemName = ["Пусто", "Диск", "Добрый мем", "Crap meme"];
 const ItemRary = [0,1,4,0];
 const Adventurer = "435460526529576960";
