@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client(); 
-const version = '0.4.1: adventure system';
-const ItemName = ["Пусто", "Диск"];
+const version = '0.5.0: item system upgrade';
+const ItemName = ["Пусто", "Диск", "Добрый мем", "Crap meme"];
+const ItemRary = [0,1,4,0];
 const Adventurer = "435460526529576960";
 const Rank = ["434273045159346181", "434376692119896114", "434273241121554444", "422839749536120832", "422832838971228171", "422850622216339467"];
 const Worker = ["434380717280198658"];
@@ -20,10 +21,30 @@ function InvenoryString(id, USER) {
   let Str = "Инвентарь:\n";
   for(i = 1; i <= 8; i++){
     Str += (i.toString() + ". " + ItemName[Inve[id][i-1]]);
-    if(Inve[id] != 0 && Invn[id] > 1) Str += (" x" + Invn[id].toString());
+    if(Inve[id][i] != 0 && Invn[id][i] > 1) Str += (" x" + Invn[id].toString());
     Str += "\n";
   }
   USER.sendMessage(Str);
+}
+
+function giveItem(user, id, count, sm, channel) {
+  let isSuccessful = false;
+  for(i = 0; i < 5; i++){
+    if(Inve[user.id][i] == 0) {
+      Inve[user.id][i] = id;
+      Invn[user.id][i] = count;
+      isSuccessful = true;
+      break;
+    } else if(Inve[user.id][i] == id) {
+      Invn[user.id][i] += count;
+      isSuccessful = true;
+      break;
+    }
+  }
+  if(sm) {
+    if(isSuccessful) channel.sendMessage("Ты получил "+count.toString()+" "+ItemName[id]);
+    else channel.sendMessage("Хотелось положить предмет\nДа места нет");
+  }
 }
 
 client.on('ready', () => {
@@ -99,6 +120,10 @@ client.on('message', msg => { if(!msg.author.bot) {
       Ruby[msg.author.id] += 1;
       msg.author.sendMessage("Средства начислены!");
       PokrC = 40;
+    }
+    
+    if(msg.content == ".goodmeme") {
+      giveItem(msg.author, 3, 1, true, msg.channel);
     }
   } 
   
