@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client(); 
-const version = '0.3.0: rank system';
+const version = '0.4.0: adventure system';
 const ItemName = ["Пусто", "Диск"];
 const Adventurer = "435460526529576960";
 const Rank = ["434273045159346181", "434376692119896114", "434273241121554444", "422839749536120832", "422832838971228171", "422850622216339467"];
