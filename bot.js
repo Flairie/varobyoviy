@@ -133,6 +133,11 @@ client.on('message', msg => { if(!msg.author.bot) {
      Role[msg.author.id] += 1;
      msg.member.addRole(Rank[Role[msg.author.id]]);
   }
+  
+  if(msg.channel.topic.search(/location/i) != -1 && msg.content === "$Search") {
+    let Bromine = Math.floor(Math.random()*0);
+    if(Bromine == 0) msg.reply("Вы нашли Валун");
+  }
 }});
 
 client.login(process.env.BOT_TOKEN); // wow
