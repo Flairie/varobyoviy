@@ -83,10 +83,10 @@ client.on('message', msg => { if(!msg.author.bot) {
     if(msg.content == ":inv") {
       InvenoryString(msg.author.id, msg.author);
     } else if(msg.content == ":job") {
-      msg.reply("Список работ:\n1. Реклама ВахтангВахтанга (1rub, 5luv). Пишите :workP");
+      msg.reply("Список работ:\n1. Реклама Вахтанга (1rub, 5luv). Пишите :workP");
     } else if(msg.content == ":workP" && !msg.member.roles.exists("id", Adventurer)) {
       if(!msg.member.roles.exists("id",Worker[0])) {
-         msg.author.sendMessage('Вы наняты. За каждое сообщение "Голосуйте за Покровского!" вы будете получать указаную зарплату, но при условии, что предыдущая реклама была достаточно давно');
+         msg.author.sendMessage('Вы наняты. За каждое сообщение "Голосуйте за Вахтанга!" вы будете получать указаную зарплату, но при условии, что предыдущая реклама была достаточно давно');
          msg.member.addRole(Worker[0]);
       } else {
         msg.author.sendMessage("Вы уволились с должности");
@@ -115,7 +115,7 @@ client.on('message', msg => { if(!msg.author.bot) {
       } else msg.reply(" забыл уволиться");
     } else if(msg.content == ":advreally") msg.reply(", похоже, потерял память");
     
-    if(msg.member.roles.exists("id" ,"434380717280198658") && msg.content === "Голосуйте за Покровского!" && PokrC <= 0) {
+    if(msg.member.roles.exists("id" ,"434380717280198658") && msg.content === "Голосуйте за Вахтанга!" && PokrC <= 0) {
       Luvr[msg.author.id] += 5;
       Ruby[msg.author.id] += 1;
       msg.author.sendMessage("Средства начислены!");
