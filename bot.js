@@ -1,12 +1,12 @@
 const Discord = require("discord.js");
 const client = new Discord.Client(); 
-const version = '0.5.1: item system upgrade';
+const version = '0.6.0 : rusty system upgrade';
 const ItemName = ["Пусто", "Диск", "Добрый мем", "Crap meme"];
 const ItemRary = [0,1,4,0];
-const Adventurer = "435460526529576960";
-const Rank = ["434273045159346181", "434376692119896114", "434273241121554444", "422839749536120832", "422832838971228171", "422850622216339467"];
-const Worker = ["434380717280198658"];
-const Zone = ["435300505770655748"];
+const Adventurer = "435818386816237579";
+const Rank = ["435810881192853505", "435819321650839554", "435819421861150731"];
+const Worker = ["435820504612339712"];
+const Zone = ["435820788575371265"];
 var Team = {};
 var Role = {};
 var Luvr = {};
@@ -83,14 +83,14 @@ client.on('message', msg => { if(!msg.author.bot) {
     if(msg.content == ":inv") {
       InvenoryString(msg.author.id, msg.author);
     } else if(msg.content == ":job") {
-      msg.reply("Список работ:\n1. Реклама Покровского (1rub, 5luv). Пишите :workP");
+      msg.reply("Список работ:\n1. Реклама ВахтангВахтанга (1rub, 5luv). Пишите :workP");
     } else if(msg.content == ":workP" && !msg.member.roles.exists("id", Adventurer)) {
-      if(!msg.member.roles.exists("id","434380717280198658")) {
+      if(!msg.member.roles.exists("id",Worker[0])) {
          msg.author.sendMessage('Вы наняты. За каждое сообщение "Голосуйте за Покровского!" вы будете получать указаную зарплату, но при условии, что предыдущая реклама была достаточно давно');
-         msg.member.addRole("434380717280198658");
+         msg.member.addRole(Worker[0]);
       } else {
         msg.author.sendMessage("Вы уволились с должности");
-        msg.member.removeRole("434380717280198658");
+        msg.member.removeRole(Worker[0]);
       }
     } else if(msg.content == ":invpubl") {
       InvenoryString(msg.author.id, msg.channel);
