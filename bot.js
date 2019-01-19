@@ -7,7 +7,9 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    //msg.channel.send("Я");
+    if (msg.content == "Вахтанг лох") {
+       msg.delete(1);
+    }
 });
 
 client.login(process.env.BOT_TOKEN); // wow
