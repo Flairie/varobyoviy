@@ -7,7 +7,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    msg.channel.send("Я");
+    //msg.channel.send("Я");
 });
 
 client.login(process.env.BOT_TOKEN); // wow
