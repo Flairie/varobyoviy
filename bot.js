@@ -19,7 +19,7 @@ client.on('message', msg => {
      msg.delete(4);
   }
   
-  if (msg.content.search("вахтанг") != -1)
+  if (msg.content.search("вахтанг") != -1 && !msg.author.bot)
     msg.reply("не существует никакого вахтанга, существует только Вахтанг");
 });
 
