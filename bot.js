@@ -18,6 +18,9 @@ client.on('message', msg => {
   if (msg.content.search("Вахтанг") != -1 && (msg.content.search("лох") != -1 || msg.content.search("дубина") != -1)) {
      msg.delete(4);
   }
+  
+  if (msg.content.search("вахтанг") != -1)
+    msg.reply("не существует никакого вахтанга, существует только Вахтанг");
 });
 
 client.login(process.env.BOT_TOKEN); // wow
