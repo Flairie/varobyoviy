@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     if (msg.content == "Вахтанг лох") {
-       msg.delete(1);
+       msg.delete(2);
     }
 });
 
